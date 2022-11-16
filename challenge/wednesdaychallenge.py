@@ -18,6 +18,14 @@ b=trial[2]["eyes"]
 c=trial[3]
 print(f"My {a}! The {b} do {c} ")
 
+a= nightmare[0]["user"]["name"]["first"]
+b= nightmare[0]["kumquat"]
+c=nightmare[0]["d"]
+
+print(f"My {a}! The {b} do {c}!")
+
+
+
 
 
 
