@@ -21,6 +21,11 @@ games = ["The Double Nickel Game, In his fifth basketball game back after retiri
 # decorator, tells the application which URL
 # should call the associated function
 
+#utilize jinja2
+@app.route("/<username>")
+def index(username):
+    return render_template("helloname.html", name = username)
+
 #return list (guotes)
 @app.route("/michaeljordan")
 def michael_jordan_quotes():
@@ -31,10 +36,10 @@ def michael_jordan_quotes():
 def michael_jordan_games():
     return random.choice(games)
 
-#utilize jinja2
-@app.route("/james")
-def james_paul():
-    return render_template("hellobasic.html")
+#return name
+@app.route("/success/<name>")
+def james_paul(name):
+    return f"Welcome {name}\n"
 
 if __name__ == "__main__":
    app.run(host="0.0.0.0", port=2224) # runs the application
