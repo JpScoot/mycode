@@ -5,6 +5,7 @@ from flask import redirect
 import random
 from flask import jsonify
 from flask import request
+from flask import render_template
 
 # Flask constructor takes the name of current
 # module (__name__) as argument
@@ -26,6 +27,13 @@ games = ["The Double Nickel Game, In his fifth basketball game back after retiri
 # decorator, tells the application which URL
 # should call the associated function
 
+#utilize jinja2
+@app.route("/<username>")
+def index(username):
+    return render_template("helloname.html", name = username)
+
+
+
 #return list (guotes)
 @app.route("/michaeljordan")
 def michael_jordan_quotes():
@@ -41,11 +49,17 @@ def michael_jordan_bio():
 def michael_jordan_games():
     return random.choice(games)
 
-#utilize jinja2
+#return name
 @app.route("/success/<name>")
 def james_paul(name):
-   # return render_template("postmaker.html")
-   return f"Welcome {name}\n"
+    return f"Welcome {name}\n"
+
+
+#utilize jinja2
+#@app.route("/jinja2/<username>")
+#def index(username):
+ #   return render_template("postmaker.html", nm = username)
+   
 
 
 if __name__ == "__main__":
